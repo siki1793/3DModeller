@@ -1,0 +1,51 @@
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
+#include <QMainWindow>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QDesktopServices>
+#include <QUrl>
+##include "secDialog.h"
+//#include <QVTKWidget.h>
+//#include <vtkRenderer.h>
+//#include <vtkRenderWindow.h>
+
+namespace Ui {
+class MainWindow;
+}
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit MainWindow(QWidget *parent = 0);
+
+    //vtkRenderer* ren;
+    ~MainWindow();
+
+private slots:
+    void on_pushButton_clicked();
+
+    void on_select_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_extractVolButton_clicked();
+
+    void on_resetButton_clicked();
+
+    void on_ELSButton_clicked();
+
+    void setLimits();
+    //void slicesView(double,double);
+private:
+    Ui::MainWindow *ui;
+    secDialog *sec;
+
+};
+
+#endif // MAINWINDOW_H

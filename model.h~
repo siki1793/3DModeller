@@ -1,0 +1,38 @@
+#ifndef MODEL_H
+#define MODEL_H
+
+#include <vtkPolyDataMapper.h>
+#include <vtkRenderer.h>
+#include <vtkDICOMImageReader.h>
+#include <vtkRenderWindow.h>
+#include <vtkSmartPointer.h>
+#include <vtkMarchingCubes.h>
+#include <vtkImageData.h>
+#include <vtkPolyData.h>
+#include <vtkLookupTable.h>
+#include <vtkGenericDataObjectReader.h>
+#include <vtkTextActor.h>
+#include <vtkTextProperty.h>
+#include <vtkSTLWriter.h>
+#include <vtkActor.h>
+#include <vtkProperty.h>
+#include <vtkRenderWindowInteractor.h>
+#include <vtkExtractVOI.h>
+#include <QMainWindow>
+
+
+class model
+{
+	public:
+		void doMarchingcubes(double,double);
+		vtkSmartPointer<vtkActor> openFile(QString);
+		vtkSmartPointer<vtkSTLWriter> saveFile(QString);
+		void extractVolume(int,int,int,int,int,int);
+		void doReset();
+		vtkSmartPointer<vtkActor> actorCreation();
+
+		int limits[6];
+};
+
+
+#endif // MODEL_H
